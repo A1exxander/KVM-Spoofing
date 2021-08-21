@@ -40,17 +40,17 @@ Bochs & BXPC          inside of src/config.h ( multiple instances )
 
 /04\/01\/2014/        inside of src/fw/biostables.c
 
-"s/01\/01\/2011       inside of src/fw/smbios.c
+s/01\/01\/2011       inside of src/fw/smbios.c
 
 seabios               inside of src/fw/biostables.c
 
 If you are using OVMF, modify the following strings :                       // THIS IS NOT UP TO DATE
 
-"EFI Development Kit II / OVMF\0" inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
+EFI Development Kit II / OVMF\0 inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
 
-"0.0.0\0"                         inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
+0.0.0\0                         inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
 
-"02/06/2015\0"                    inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
+02/06/2015\0                    inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -94,9 +94,13 @@ Make the SN of the harddrive look realistic!
 For our last step, we will need to modify our KVM's XML file. In your XML, modify the following : 
 
 Set : <cpu mode="host-passthrough" check="none">                                     // Passes thru your CPU Model
+  
 Set : type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      // Sets harddisk model to SATAS
-Set : <vendor_id state="on" value="XXXX"/>                                         // Changes Vendor_ID                                  
+  
+Set : <vendor_id state="on" value="XXXX"/>                                         // Changes Vendor_ID           
+  
 Set : <kvm> <hidden state="on"/> </kvm>                                           // Hides KVM State
+  
 Set : <feature policy="disable" name="hypervisor"/>                              // Disables HyperV Hypervisor enhancements - Will negatively impact gaming performance
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
