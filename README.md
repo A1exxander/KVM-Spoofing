@@ -46,7 +46,7 @@ If you are using OVMF, modify the following strings :                       // T
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Modifying the Linux Kernel to spoof VM_EXIT on RDTSC**
 
-VIM to arch/x86/kvm/vmx/vmx.c and create a function called handle_RDTSC 
+VIM to /x86/kvm/vmx/vmx.c and create a function called handle_RDTSC 
 
 static int handle_rdtsc(struct kvm_vcpu *vcpu) {  
 uint32_t data;     
