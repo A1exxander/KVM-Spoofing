@@ -25,7 +25,7 @@ bochs inside of /block/bochs.c
 
 Bochs Pseudo inside of /roms/ipxe/src/drivers/net/pnic.c
 
-Modify these to legitimate vendors, for example QEMUHARDDISK could be changed to something such like " Toshiba MQ01ABD " - It is unlikely that some system will actually check this on a deeper level, but try to use a disk model that comes in same size as your virtual disk. The truth is that most applications will simply check if Harddisk model == QEMU 
+Modify these to legitimate vendors, for example QEMUHARDDISK could be changed to something such like " Toshiba MQ01ABD " - It is unlikely that some system will actually check this on a deeper level, but try to use a disk model that comes in same size as your virtual disk. The truth is that most applications will simply check if Harddisk model string contains QEMU.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Modifying SMBIOS ( Seabios or OVMF )**
