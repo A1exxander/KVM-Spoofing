@@ -58,7 +58,8 @@ EFI Development Kit II / OVMF\0 inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosP
 
 VIM to /x86/kvm/vmx/vmx.c and create a function called handle_RDTSC 
 
-`static int handle_rdtsc(struct kvm_vcpu *vcpu) {                 // This code only works for Intel CPUs. AMD CPUs will need their own function and exit handler in SVM. 
+`
+static int handle_rdtsc(struct kvm_vcpu *vcpu) {                 // This code only works for Intel CPUs. AMD CPUs will need their own function and exit handler in SVM. 
 
 uint32_t data;     
 
@@ -101,13 +102,13 @@ Make the SN of the harddrive look realistic!
 **For our last step, we will need to modify our KVM's XML file. In your XML, modify the following ** 
 
 
-Set: <cpu mode = "host-passthrough" check="none"/>                                     
+Set: cpu mode = "host-passthrough" check="none"                                     
   
 Set: type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      
   
 Set: vendor_id state="on" value="XXXX"                                                  
   
-Set:  <kvm> <hidden state="on"/> </kvm>                                 
+Set: kvm hidden state="on" kvm                                 
   
 Set: feature policy="disable" name="hypervisor"                             
   
