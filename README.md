@@ -94,15 +94,15 @@ Make the SN of the harddrive look realistic!
 **For our last step, we will need to modify our KVM's XML file. In your XML, modify the following :** 
 
 
-1. cpu mode = "host-passthrough" check="none">                                     
+Set: cpu mode = "host-passthrough" check="none">                                     
   
-2. type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      
+Set: type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      
   
-3. vendor_id state="on" value="XXXX"/>                                                   
+Set: vendor_id state="on" value="XXXX"/>                                                   
   
-4. <<kvm>> <<hidden state="on"/>> <</kvm>>                                    
+Set: <kvm> <<hidden state="on"/>> <</kvm>>                                    
   
-5. <<feature policy="disable" name="hypervisor"/>                             
+Set: <feature policy="disable" name="hypervisor"/>                             
   
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
