@@ -1,7 +1,7 @@
 # KVM-Spoofing-
 A guide for spoofing KVM and making it undetectable
 
-Hello. This is a repost of a KVM guide I wrote about a year ago where I made my Kernel based virtual machine undetectable. This guide has been used by thousands of users across multiple sites, such as Reddit, Malware Anaylsis, Gaming, and anti-cheat reverse engineering sites. I decided it was worth a repost and update because even a year later, I occasionally still get asked about it.
+Hello. This is a repost of a KVM guide I wrote about a year ago where I made my Kernel based virtual machine undetectable. This guide has been used by thousands of users across multiple sites, such as Reddit, Malware Anaylsis Forums, Gaming Forums, and anti-cheat reverse engineering sites. I decided it was worth a repost and update because even a year later, I occasionally still get asked about it.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Modifying QEMU**
@@ -98,11 +98,11 @@ Set : cpu mode = "host-passthrough" check="none">                               
   
 Set : type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      // Sets harddisk model to SATAS
   
-Set : <vendor_id state="on" value="XXXX"/>                                         // Changes Vendor_ID           
+Set : vendor_id state="on" value="XXXX"/>                                         // Changes Vendor_ID           
   
-Set : <kvm> <hidden state="on"/> </kvm>                                           // Hides KVM State
+Set : kvm> <hidden state="on"/> </kvm>                                           // Hides KVM State
   
-Set : <feature policy="disable" name="hypervisor"/>                              // Disables HyperV Hypervisor enhancements - Will negatively impact gaming performance
+Set : feature policy="disable" name="hypervisor"/>                              // Disables HyperV Hypervisor enhancements - Will negatively impact gaming performance
   
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
