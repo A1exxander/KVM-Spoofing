@@ -87,6 +87,7 @@ This is the simplest way to handle 99% of VM_Exit checks that I use, however as 
 
 After you are done modifying the previous files, recompile each package and install your KVM on virt machine manager. Install it with GPU passthrough. 
 I am not going to explain how to install a KVM since it would be too long, but a good guide I recommend is https://github.com/vanities/GPU-Passthrough-Arch-Linux-to-Windows10
+
 I must note that if you are using Seabios & a Debian based linux distro, I recommend modifying QEMU and Seabios by using https://github.com/doomedraven/Tools/blob/master/Virtualization/kvm-qemu.sh - Personally I cant use this as I use an Arch based distro and OVMF
 
 While installing a KVM, set realistic RAM and Harddisk sizes, ie for 
