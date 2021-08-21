@@ -76,7 +76,7 @@ This is the simplest way to handle 99% of VM_Exit checks that I use, however som
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Installing and modifying our Virtual Machine**
 
-After you are done modifying the previous files, recompile each package and install your KVM on virt machine manager. Install it with GPU passthru. 
+After you are done modifying the previous files, recompile each package and install your KVM on virt machine manager. Install it with GPU passthrough. 
 I am not going to explain how to install a KVM since it would be too long, but a good guide I recommend is https://github.com/vanities/GPU-Passthrough-Arch-Linux-to-Windows10
 I must note that if you are using Seabios & a Debian based linux distro, I recommend modifying QEMU and Seabios by using https://github.com/doomedraven/Tools/blob/master/Virtualization/kvm-qemu.sh - Personally I cant use this as I use an Arch based distro and OVMF
 
@@ -94,7 +94,7 @@ Make the SN of the harddrive look realistic!
 **For our last step, we will need to modify our KVM's XML file. In your XML, modify the following :** 
 
 
-Set : <cpu mode="host-passthrough" check="none">   '                                  // Passes thru your CPU Model
+Set : cpu mode = "host-passthrough" check="none">                                     // Passes thru your CPU Model
   
 Set : type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      // Sets harddisk model to SATAS
   
