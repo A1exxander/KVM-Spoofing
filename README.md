@@ -66,7 +66,6 @@ vcpu->arch.regs[VCPU_REGS_RAX] = data & -1u;
 vcpu->arch.regs[VCPU_REGS_RDX] = (data >> 32) & -1u;          
 skip_emulated_instruction(vcpu); 
 return 1; 
-
 }
 
 After the previous function is created, create an exit handler for RDTSC :
