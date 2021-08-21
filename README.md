@@ -119,7 +119,7 @@ Set: feature policy="disable" name="hypervisor"                                 
   
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  If all is done properly, your KVM should be completely undetectable! If your guest machine is on Windows, I recommend using PAFish to check it.
+  If all is done properly, your KVM should be completely undetectable! If your guest machine is on Windows, I recommend using PAFish to check.
   
   RESULTS : ![image](https://user-images.githubusercontent.com/88210134/130307422-b019ebcb-8c9f-4f0c-a028-1b0270475a2b.png)
   
