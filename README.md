@@ -94,7 +94,7 @@ Make the SN of the harddrive look realistic!
 **For our last step, we will need to modify our KVM's XML file. In your XML, modify the following :** 
 
 
-Set : <cpu mode="host-passthrough" check="none">                                     // Passes thru your CPU Model
+Set : <cpu mode="host-passthrough" check="none">   '                                  // Passes thru your CPU Model
   
 Set : type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      // Sets harddisk model to SATAS
   
