@@ -103,15 +103,15 @@ Make the SN of the harddrive look realistic!
 **For our last step, we will need to modify our KVM's XML file. In your XML, modify the following ** 
 
 
-Set: cpu mode = "host-passthrough" check="none"                                     
+Set: cpu mode = "host-passthrough" check="none"                                 // Passes CPU Model                                   
   
-Set: type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      
+Set: type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"   // Set disk interface to SATA
   
-Set: vendor_id state="on" value="XXXX"                                                  
+Set: vendor_id state="on" value="XXXX"                                          // Spoofs vendor ID         
   
-Set: kvm hidden state="on" kvm                                 
+Set: kvm hidden state="on" kvm                                                  // Hides KVM state
   
-Set: feature policy="disable" name="hypervisor"                             
+Set: feature policy="disable" name="hypervisor"                                 // Disables Hyper-V Hypervisor enhancements. Will negatively impact gaming performance.
   
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
