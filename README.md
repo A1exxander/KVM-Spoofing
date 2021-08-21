@@ -26,10 +26,15 @@ Modifying SMBIOS ( Seabios or OVMF )
 If you are using Seabios, modify the following strings :
 
 Bochs & BXPC          inside of src/config.h ( multiple instances )
+
 /QEMU\/Bochs/ & qemu  inside of vgasrc/Kconfig
+
 /06\/23\/99/          inside ofsrc/misc.c
+
 /04\/01\/2014/        inside of src/fw/biostables.c
+
 "s/01\/01\/2011       inside of src/fw/smbios.c
+
 seabios               inside of src/fw/biostables.c
 
 If you are using OVMF, modify the following strings :                       // THIS IS NOT UP TO DATE
