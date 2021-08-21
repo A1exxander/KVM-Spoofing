@@ -100,9 +100,9 @@ Set : type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"  
   
 Set : vendor_id state="on" value="XXXX"/>                                         // Changes Vendor_ID           
   
-Set : kvm> <hidden state="on"/> </kvm>                                           // Hides KVM State
+Set : <<kvm>> <<hidden state="on"/>> <</kvm>>                                    // Hides KVM State
   
-Set : feature policy="disable" name="hypervisor"/>                              // Disables HyperV Hypervisor enhancements - Will negatively impact gaming performance
+Set : <<feature policy="disable" name="hypervisor"/>                              // Disables HyperV Hypervisor enhancements - Will negatively impact gaming performance
   
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
