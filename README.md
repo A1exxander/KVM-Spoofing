@@ -9,13 +9,20 @@ Hello. This is a repost of a KVM guide I wrote about a year ago where I made my 
 Modify the following strings : 
 
 QEMU HARDDISK inside of /hw/ide/core.c  &  /hw/scsi/scsi-disk.c
+
 QEMU DVD-ROM  inside of /hw/ide/core.c  &  /hw/ide/atapi.c
+
 QEMU CD-ROM   inside of /hw/ide/core.c  &  /hw/scsi/scsi-disk.c
+
 QEMU MICRODRIVE inside of /hw/ide/core.c
 QEMU PenPartner tablet inside of /hw/usb/dev-wacom.c & /hw/scsi/scsi-disk.c
+
 padstr inside of /hw/ide/atapi.c
+
 KVMKVMKVM\\0\\0\\0 inside of /target/i386/kvm.c
+
 bochs inside of /block/bochs.c
+
 Bochs Pseudo inside of /roms/ipxe/src/drivers/net/pnic.c
 
 Modify these to legitimate vendors, for example QEMUHARDDISK could be changed to something such like " Toshiba MQ01ABD " - It is unlikely that some system will actually check this on a deeper level, but try to use a disk model that comes in same size as your virtual disk. The truth is that most applications will simply check if Harddisk model == QEMU 
@@ -40,8 +47,11 @@ seabios               inside of src/fw/biostables.c
 If you are using OVMF, modify the following strings :                       // THIS IS NOT UP TO DATE
 
 "EFI Development Kit II / OVMF\0" inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
+
 "0.0.0\0"                         inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
+
 "02/06/2015\0"                    inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Modifying the Linux Kernel to spoof VM_EXIT on RDTSC**
@@ -72,9 +82,11 @@ I must note that if you are using Seabios & a Debian based linux distro, I recom
 
 While installing a KVM, set realistic RAM and Harddisk sizes, ie for 
 
-8   GB RAM : 8192
-16  GB RAM : 16384
-32  GB RAM : 32768
+8   GB RAM : 8192  MBs
+
+16  GB RAM : 16384 MBs
+
+32  GB RAM : 32768 MBs
 
 Disk size is entirely upon the purpose of your KVM, but try to make the size equivalenet to the model of your harddisk picked in /hw/ide/core.c
 Make the SN of the harddrive look realistic!
