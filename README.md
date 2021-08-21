@@ -118,4 +118,6 @@ Set: feature policy="disable" name="hypervisor"                                 
   If all is done properly, your KVM should be completely undetectable! If your guest machine is on Windows, I recommend using PAFish to check it.
   
   RESULTS : ![image](https://user-images.githubusercontent.com/88210134/130307422-b019ebcb-8c9f-4f0c-a028-1b0270475a2b.png)
+  
+  Please keep in mind that with proper timings, this is undetectable to every single program I have ever seen, but this may change in the future if software with VM checks improve and begin to to look at something else, such as IA_32 Timestamp
 
