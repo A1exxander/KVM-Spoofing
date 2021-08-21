@@ -4,7 +4,7 @@ A guide for spoofing KVM and making it undetectable
 Hello. This is a repost of a KVM guide I wrote about a year ago where I made my Kernel based virtual machine undetectable. This guide has been used by thousands of users across multiple sites, such as Reddit, Malware Anaylsis, Gaming, and anti-cheat reverse engineering sites. I decided it was worth a repost and update because even a year later, I occasionally still get asked about it.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-To start off, lets start by modifying some strings in the QEMU source code.
+Modifying QEMU
 
 Modify the following strings : 
 
@@ -59,9 +59,9 @@ After the previous function is created, create an exit handler for RDTSC :
 This is the simplest way to handle 99% of VM_Exit checks that I use, however some software may check the actual timings, in which the example would fail. For this, you would need to use something like https://github.com/SamuelTulach/BetterTiming
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Installing and modifying our Virtual Machine
 After you are done modifying the previous files, recompile each package and install your KVM on virt machine manager. Install it with GPU passthru. 
 I am not going to explain how to install a KVM since it would be too long, but a good guide I recommend is https://github.com/vanities/GPU-Passthrough-Arch-Linux-to-Windows10
-
 I must note that if you are using Seabios & a Debian based linux distro, I recommend spoofing QEMU and Seabios by using https://github.com/doomedraven/Tools/blob/master/Virtualization/kvm-qemu.sh - Personally I cant use this as I use an Arch based distro and OVMF
 
 While installing a KVM, set realistic RAM and Harddisk sizes, ie for 
@@ -71,10 +71,17 @@ While installing a KVM, set realistic RAM and Harddisk sizes, ie for
 32  GB RAM : 32768
 
 Disk size is entirely upon the purpose of your KVM, but try to make the size equivalenet to the model of your harddisk picked in /hw/ide/core.c
+Make the SN of the harddrive look realistic!
 
-Make the serial number of the harddrive look realistic!
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-For our last step, we will need to modify 
+For our last step, we will need to modify our KVM's XML file. In your XML, modify the following : 
 
-
+Set : <cpu mode="host-passthrough" check="none">                                     // Passes thru your CPU Model
+Set : type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      // Sets harddisk model to SATAS
+Set : <vendor_id state="on" value="XXXX"/>                                         // Changes Vendor_ID                                  
+Set : <kvm> <hidden state="on"/> </kvm>                                           // Hides KVM State
+Set : <feature policy="disable" name="hypervisor"/>                              // Disables HyperV Hypervisor enhancements - Will negatively impact gaming performance
+  
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  RESULTS : ![image](https://user-images.githubusercontent.com/88210134/130307422-b019ebcb-8c9f-4f0c-a028-1b0270475a2b.png)
 
