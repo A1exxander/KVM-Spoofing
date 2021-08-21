@@ -4,7 +4,7 @@ A guide for spoofing KVM and making it undetectable
 Hello. This is a repost of a KVM guide I wrote about a year ago where I made my Kernel based virtual machine undetectable. This guide has been used by thousands of users across multiple sites, such as Reddit, Malware Anaylsis, Gaming, and anti-cheat reverse engineering sites. I decided it was worth a repost and update because even a year later, I occasionally still get asked about it.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Modifying QEMU
+**Modifying QEMU**
 
 Modify the following strings : 
 
@@ -21,7 +21,7 @@ Bochs Pseudo inside of /roms/ipxe/src/drivers/net/pnic.c
 Modify these to legitimate vendors, for example QEMUHARDDISK could be changed to something such like " Toshiba MQ01ABD " - It is unlikely that some system will actually check this on a deeper level, but try to use a disk model that comes in same size as your virtual disk. The truth is that most applications will simply check if Harddisk model == QEMU 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Modifying SMBIOS ( Seabios or OVMF )
+**Modifying SMBIOS ( Seabios or OVMF )**
 
 If you are using Seabios, modify the following strings :
 
@@ -44,7 +44,7 @@ If you are using OVMF, modify the following strings :                       // T
 "02/06/2015\0"                    inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosPlatformDxe.c
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Modifying the Linux Kernel to spoof VM_EXIT on RDTSC
+**Modifying the Linux Kernel to spoof VM_EXIT on RDTSC**
 
 VIM to arch/x86/kvm/vmx/vmx.c and create a function called handle_RDTSC 
 
@@ -64,7 +64,8 @@ After the previous function is created, create an exit handler for RDTSC :
 This is the simplest way to handle 99% of VM_Exit checks that I use, however some software may check the actual timings, in which the example would fail. For this, you would need to use something like https://github.com/SamuelTulach/BetterTiming
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Installing and modifying our Virtual Machine
+**Installing and modifying our Virtual Machine**
+
 After you are done modifying the previous files, recompile each package and install your KVM on virt machine manager. Install it with GPU passthru. 
 I am not going to explain how to install a KVM since it would be too long, but a good guide I recommend is https://github.com/vanities/GPU-Passthrough-Arch-Linux-to-Windows10
 I must note that if you are using Seabios & a Debian based linux distro, I recommend spoofing QEMU and Seabios by using https://github.com/doomedraven/Tools/blob/master/Virtualization/kvm-qemu.sh - Personally I cant use this as I use an Arch based distro and OVMF
