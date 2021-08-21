@@ -58,7 +58,7 @@ EFI Development Kit II / OVMF\0 inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosP
 
 VIM to /x86/kvm/vmx/vmx.c and create a function called handle_RDTSC 
 
-`
+```
 static int handle_rdtsc(struct kvm_vcpu *vcpu) {                 // This code only works for Intel CPUs. AMD CPUs will need their own function and exit handler in SVM. 
 
 uint32_t data;     
@@ -74,7 +74,8 @@ vcpu->arch.regs[VCPU_REGS_RDX] = (data >> 32) & -1u;
 skip_emulated_instruction(vcpu); 
 
 return 1; 
-}`
+}
+```
 
 After the previous function is created, create an exit handler for RDTSC :
 [EXIT_REASON_RDTSC] = handle_rdtsc
