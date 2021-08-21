@@ -58,7 +58,7 @@ EFI Development Kit II / OVMF\0 inside of edk2/OvmfPkg/SmbiosPlatformDxe/SmbiosP
 
 VIM to /x86/kvm/vmx/vmx.c and create a function called handle_RDTSC 
 
-static int handle_rdtsc(struct kvm_vcpu *vcpu) {  
+static int handle_rdtsc(struct kvm_vcpu *vcpu) {                 // This code only works for Intel CPUs. AMD CPUs will need their own function and exit handler in SVM. 
 uint32_t data;     
 data = 500; 
 printk("[vmkernel] handling fake rdtsc from cpl %i\n", vmx_get_cpl(vcpu));          
@@ -66,6 +66,7 @@ vcpu->arch.regs[VCPU_REGS_RAX] = data & -1u;
 vcpu->arch.regs[VCPU_REGS_RDX] = (data >> 32) & -1u;          
 skip_emulated_instruction(vcpu); 
 return 1; 
+
 }
 
 After the previous function is created, create an exit handler for RDTSC :
@@ -93,6 +94,7 @@ Make the SN of the harddrive look realistic!
 
 **For our last step, we will need to modify our KVM's XML file. In your XML, modify the following :** 
 
+
 Set : <cpu mode="host-passthrough" check="none">                                     // Passes thru your CPU Model
   
 Set : type="raw" cache="none" io="native" discard="ignore" detect_zeroes="off"      // Sets harddisk model to SATAS
@@ -102,6 +104,7 @@ Set : <vendor_id state="on" value="XXXX"/>                                      
 Set : <kvm> <hidden state="on"/> </kvm>                                           // Hides KVM State
   
 Set : <feature policy="disable" name="hypervisor"/>                              // Disables HyperV Hypervisor enhancements - Will negatively impact gaming performance
+  
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   If all is done properly, your KVM should be completely undetectable! If your guest machine is on Windows, I recommend using PAFish 
