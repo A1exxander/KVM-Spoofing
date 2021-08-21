@@ -91,7 +91,7 @@ While installing a KVM, set realistic RAM and Harddisk sizes, ie for
 Disk size is entirely upon the purpose of your KVM, but try to make the size equivalenet to the model of your harddisk picked in /hw/ide/core.c
 Make the SN of the harddrive look realistic!
 
-For our last step, we will need to modify our KVM's XML file. In your XML, modify the following : 
+**For our last step, we will need to modify our KVM's XML file. In your XML, modify the following :** 
 
 Set : <cpu mode="host-passthrough" check="none">                                     // Passes thru your CPU Model
   
