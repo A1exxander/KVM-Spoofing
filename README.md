@@ -99,7 +99,7 @@ While installing a KVM, set realistic RAM and Harddisk sizes, ie for
 32  GB RAM : 32768 MBs
 
 Disk size is entirely upon the purpose of your KVM, but try to make the size equivalenet to the model of your harddisk picked in /hw/ide/core.c
-Make the SN of the harddrive look realistic!
+Make the SN of the harddrive look realistic and make sure it follows the law of Luhn's algorithm!
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
