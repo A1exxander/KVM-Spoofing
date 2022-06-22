@@ -80,7 +80,7 @@ return 1;
 After the previous function is created, create an exit handler for RDTSC :
 ```[EXIT_REASON_RDTSC] = handle_rdtsc```
 
-This is the simplest way to handle 99% of VM_Exit checks that I use, however as this returns a static value, some software may check the actual timings, in which the example would fail. For this, you would need to use something like https://github.com/SamuelTulach/BetterTiming
+This is the simplest way to handle 99% of VM_Exit checks that I use, however as this returns a static value, some software may check the actual timings, in which the example would fail.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Installing and modifying our Virtual Machine**
