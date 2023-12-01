@@ -1,7 +1,7 @@
 # KVM-Spoofing
 A guide for spoofing KVM and making it undetectable
 
-Hello. This is a repost of a KVM guide I wrote about a year ago where I made my Kernel based virtual machine undetectable. This guide has been used by thousands of users across multiple sites, such as Reddit, Malware Anaylsis Forums, Gaming Forums, and anti-cheat reverse engineering sites. I decided it was worth a repost and update because even a year later, I occasionally still get asked about it.
+Hello. This is a repost of a KVM guide I wrote about a year ago where I made my Kernel-based virtual machine undetectable. This guide has been used by thousands of users across multiple sites, such as Reddit, malware analysis forums, gaming forums, and anti-cheat reverse engineering sites. I decided it was worth a repost and update because even a year later, I still get asked about it.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Modifying QEMU**
